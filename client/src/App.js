@@ -7,7 +7,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='container mt-4'>
       <Routes>
         <Route path={'*'} element={<Navigate to={'/'} />} />
         <Route path={'/'} element={<Main />} />

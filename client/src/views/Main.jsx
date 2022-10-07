@@ -3,7 +3,7 @@ import React from 'react'
 const Main = (props) => {
     return (
         <div>
-            Main
+            <h1 className='text-center'>Dream Board</h1>
         </div>
     )
 }
