@@ -23,7 +23,7 @@ const DreamSchema = new mongoose.Schema({
     comments: {
         type: Array
     }
-})
+}, {timestamps: true})
 
 const Dream = mongoose.model('Dream', DreamSchema)
 module.exports = Dream
