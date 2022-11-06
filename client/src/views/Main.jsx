@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Main = (props) => {
     
@@ -7,10 +7,14 @@ const Main = (props) => {
     
     return (
         <div>
-            <div className='d-flex justify-content-center align-items-center flex-column'>
+            <div className='d-flex justify-content-between align-items-center'>
                 <h1 className='text-center'>Dream<span style={{'color':'MediumPurple'}}>ZZZ</span></h1>
-                <button className='btn btn-sm btn-outline-light' onClick={() => nav('/loginreg')}>Log In or Register to Share a Dream</button>
+                <button className='btn btn-sm btn-outline-light' onClick={() => nav('/loginreg')}>Log In/Register</button>
             </div>
+
+            <hr />
+
+            <button className='btn btn-info' onClick={() => nav('/new/dream')}>Click Here to Share a Dream</button>
         </div>
     )
 }

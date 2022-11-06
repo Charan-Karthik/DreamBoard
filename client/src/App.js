@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Main from './views/Main';
 import LoginReg from './views/LoginReg'
+import NewDream from './views/NewDream';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path={'*'} element={<Navigate to={'/'} />} />
         <Route path={'/'} element={<Main />} />
         <Route path={'/loginreg'} element={<LoginReg />} />
+        <Route path={'/new/dream'} element={<NewDream />} />
       </Routes>
     </div>
   );
