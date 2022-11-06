@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path={'*'} element={<Navigate to={'/'} />} />
         <Route path={'/'} element={<Main />} />
-        <Route path={'/loginreg'} element={<LoginReg />} />
+        <Route path={'/auth'} element={<LoginReg />} />
         <Route path={'/new/dream'} element={<NewDream />} />
       </Routes>
     </div>

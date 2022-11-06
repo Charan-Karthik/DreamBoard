@@ -26,23 +26,14 @@ const LoginReg = (props) => {
 
   return (
     <div>
-      {/* OLD VERSION */}
-      {/* <h1 className='text-center text-light mb-4'>Dream<span style={{ 'color': 'mediumpurple' }}>ZZZ</span></h1>
-
-      <div className='d-flex justify-content-center flex-column align-items-center gap-2'>
-        <h3>Log In or Register to Share your Thoughts!</h3>
-        <Link to={'/'}><span style={{'color':'white', 'textDecoration':'none'}}>View all Shared Dreams</span></Link>
-        <button className='btn btn-sm btn-outline-light' onClick={() => nav('/')}>View All Shared Dreams</button>
-      </div> */}
-
       <div className='d-flex justify-content-between align-items-center'>
-        <h1 className='text-center mb-4'>Dream<span style={{ 'color': 'mediumpurple' }}>ZZZ</span></h1>
+        <h1 className='text-center' onClick={() => nav('/')}>Dream<span style={{ 'color': 'mediumpurple' }}>ZZZ</span></h1>
         <button className='btn btn-sm btn-outline-light' onClick={() => nav('/')}>View All Shared Dreams</button>
       </div>
 
-      <hr className='mt-3 mb-4' />
+      <hr className='mb-5' />
 
-      <h3 className='text-center mb-5'>Log In or Register to Share your Dreams!</h3>
+      {/* <h3 className='text-center mb-5'>Log In or Register to Share your Dreams!</h3> */}
 
       <div className="d-flex justify-content-around mt-3">
         <form className="w-25 d-block mx-auto" onSubmit={register}>
@@ -92,12 +83,17 @@ const LoginReg = (props) => {
         </form>
       </div>
 
-      {/* <div className='mt-5'>
+
+      <br />
+      <br />
+      <br />
+
+      <div className='mt-5'>
         <div className='d-flex justify-content-center'>
           <a href="#"
-            className="btn" style={{ 'backgroundColor': '#DDA0DD' }}>Support this Project!</a>
+            className="btn" style={{ 'backgroundColor': 'mediumslateblue', 'color':'white' }}>Support this Project!</a>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }

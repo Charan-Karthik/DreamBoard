@@ -9,7 +9,7 @@ const Main = (props) => {
         <div>
             <div className='d-flex justify-content-between align-items-center'>
                 <h1 className='text-center'>Dream<span style={{'color':'MediumPurple'}}>ZZZ</span></h1>
-                <button className='btn btn-sm btn-outline-light' onClick={() => nav('/loginreg')}>Log In/Register</button>
+                <button className='btn btn-sm btn-outline-light' onClick={() => nav('/auth')}>Log In/Register</button>
             </div>
 
             <hr />
