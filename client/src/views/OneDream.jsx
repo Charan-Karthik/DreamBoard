@@ -60,7 +60,7 @@ const OneDream = (props) => {
           <button className='btn btn-sm btn-outline-light' onClick={() => nav('/auth')}>Log In/Register</button>}
       </div>
 
-      <hr />
+      <hr className='mt-4' />
 
       {JSON.stringify(dream)}
     </div>

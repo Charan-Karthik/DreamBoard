@@ -76,7 +76,7 @@ const LoginReg = (props) => {
         <button className='btn btn-sm btn-outline-light' onClick={() => nav('/')}>View All Shared Dreams</button>
       </div>
 
-      <hr className='mb-5' />
+      <hr className='mt-4 mb-5' />
 
       {/* <h3 className='text-center mb-5'>Log In or Register to Share your Dreams!</h3> */}
 

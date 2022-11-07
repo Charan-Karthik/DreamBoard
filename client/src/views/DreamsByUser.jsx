@@ -45,7 +45,7 @@ const DreamsByUser = (props) => {
                 </div>
             </div>
 
-            <hr />
+            <hr className='mt-4' />
 
             DreamsByUser
         </div>

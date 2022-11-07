@@ -15,6 +15,7 @@ const NewDream = (props) => {
             if (user) {
                 console.log(user)
                 props.setLoggedInUser(user.username)
+                setPoster(user.username)
             } else {
                 localStorage.removeItem('token')
             }
@@ -79,7 +80,7 @@ const NewDream = (props) => {
                 </div>
             </div>
 
-            <hr />
+            <hr className='mt-4' />
 
             <h1 className='text-center'>What <span style={{ 'color': 'mediumpurple' }}>dream</span> would you like to share?</h1>
 

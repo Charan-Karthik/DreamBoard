@@ -11,7 +11,7 @@ const Main = (props) => {
 
     // useEffect to get posts
     useEffect(() => {
-        axios.get('http://localhost:8000/api/dreams')
+        axios.get('http://localhost:8000/api/dreams/public')
             .then(res => setAllDreams(res.data.reverse()))
             .catch(err => console.log(err))
     })
@@ -54,8 +54,6 @@ const Main = (props) => {
                     :
                     <button className='btn btn-sm btn-outline-light' onClick={() => nav('/auth')}>Log In/Register</button>}
             </div>
-
-            {/* {props.loggedInUser ? <h3 className='text-center'>~ ~ ~ Welcome, {props.loggedInUser} ~ ~ ~</h3> : <></> } */}
 
             <hr className='mt-4' />
             <br />
