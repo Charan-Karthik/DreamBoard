@@ -11,6 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // require routes
-// require('./routes/{FILENAME}')(app); // CHANGE NEEDS TO BE MADE HERE!!
+require('./routes/user.routes')(app);
     
 app.listen(port, () => console.log(`Listening on port: ${port}`) );

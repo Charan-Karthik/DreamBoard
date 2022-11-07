@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const LoginReg = (props) => {
 
@@ -13,15 +14,55 @@ const LoginReg = (props) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const [regErrors, setRegErrors] = useState([]);
-  const [loginErrors, setLoginErrors] = useState([]);
+  const [regErrors, setRegErrors] = useState(null);
+  const [loginErrors, setLoginErrors] = useState(null);
 
   const register = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    axios.post('http://localhost:8000/api/users/register', {
+      username,
+      email: regEmail,
+      password: regPassword,
+      confirmPassword
+    })
+      .then(res => {
+        console.log("SUCCESS", res.data)
+      })
+      .catch(err => {
+        console.log('ERROR', err)
+
+        const errorResponse = err.response.data.errors;
+        const errorArr = [];
+
+        if (errorResponse) {
+          for (const key of Object.keys(errorResponse)) {
+            errorArr.push(errorResponse[key].message)
+          }
+        }
+
+        if (err.response.data.code === 11000) {
+          errorArr.push("Email and/or Username is already in use")
+        }
+
+        setRegErrors(errorArr)
+      })
   }
 
   const login = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    axios.post('http://localhost:8000/api/users/login', {
+      email: loginEmail,
+      password: loginPassword
+    })
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log("ERROR", err)
+        setLoginErrors("Incorrect email and/or password")
+      })
   }
 
   return (
@@ -39,26 +80,28 @@ const LoginReg = (props) => {
         <form className="w-25 d-block mx-auto" onSubmit={register}>
           <h1>Register</h1>
 
-          {regErrors.map((err, index) => <p style={{ 'color': 'red' }} key={index}>{err}</p>)}
+          {regErrors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'>
+            {regErrors.map((err, index) => <p className='text-center' key={index}>{err}</p>)}
+          </div> : <></>}
 
           <div className="mb-3">
             <label className="form-label">Username</label>
-            <input name="username" type="text" className="form-control" onChange={(e) => { setUsername(e.target.value) }} />
+            <input type="text" className="form-control" onChange={(e) => { setUsername(e.target.value) }} />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Email</label>
-            <input name="email" type="email" className="form-control" onChange={(e) => { setRegEmail(e.target.value) }} />
+            <input type="email" className="form-control" onChange={(e) => { setRegEmail(e.target.value) }} />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Password</label>
-            <input name="password" type="password" className="form-control" onChange={(e) => { setRegPassword(e.target.value) }} />
+            <input type="password" className="form-control" onChange={(e) => { setRegPassword(e.target.value) }} />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Confirm Password</label>
-            <input name="confirm_password" type="password" className="form-control" onChange={(e) => { setConfirmPassword(e.target.value) }} />
+            <input type="password" className="form-control" onChange={(e) => { setConfirmPassword(e.target.value) }} />
           </div>
 
           <input type="submit" className="btn btn-primary" value="Register" />
@@ -67,16 +110,16 @@ const LoginReg = (props) => {
         <form className="w-25 d-block mx-auto" onSubmit={login}>
           <h1>Log In</h1>
 
-          {loginErrors ? <p className='text-danger'>{loginErrors}</p> : <></>}
+          {loginErrors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'> <p className='text-center'>{loginErrors}</p> </div> : <></>}
 
           <div className="mb-3">
             <label className="form-label">Email</label>
-            <input name="email" type="email" className="form-control" onChange={(e) => { setLoginEmail(e.target.value) }} />
+            <input type="email" className="form-control" onChange={(e) => { setLoginEmail(e.target.value) }} />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Password</label>
-            <input name="password" type="password" className="form-control" onChange={(e) => { setLoginPassword(e.target.value) }} />
+            <input type="password" className="form-control" onChange={(e) => { setLoginPassword(e.target.value) }} />
           </div>
 
           <input type="submit" className="btn btn-primary" value="Log In" />
@@ -90,8 +133,8 @@ const LoginReg = (props) => {
 
       <div className='mt-5'>
         <div className='d-flex justify-content-center'>
-          <a href="#"
-            className="btn" style={{ 'backgroundColor': 'mediumslateblue', 'color':'white' }}>Support this Project!</a>
+          <a href="https://www.paypal.com/donate/?business=XQPVNXAPA35XW&no_recurring=0&item_name=Support+the+further+development+of+DreamZZZ%21+%3A%29&currency_code=USD"
+            className="btn" style={{ 'backgroundColor': 'mediumslateblue', 'color': 'white' }}>Support this Project!</a>
         </div>
       </div>
     </div>

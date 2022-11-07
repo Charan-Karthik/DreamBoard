@@ -4,7 +4,11 @@ const jwt = require('jsonwebtoken')
 
 module.exports.register = (req, res) => {
     User.create(req.body)
-        .then(user => res.json(user))
+        .then(user => {
+
+            return res.json(user)
+
+        })
         .catch(err => res.status(400).json(err))
 }
 
@@ -21,7 +25,6 @@ module.exports.login = async (req, res) => {
         return res.status(400).json({ error: "Invalid password" })
     }
 
-    const token = jwt.sign({ username: user.username }, process.env.JWT_PRIVATE_KEY, { expiresIn: '1d' })
-
-    return res.json({ user: token })
+    // const token = jwt.sign({ username: user.username }, process.env.JWT_PRIVATE_KEY, { expiresIn: '1d' })
+    return res.json({ user: user.username })
 }

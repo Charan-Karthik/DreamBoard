@@ -5,9 +5,9 @@ const NewDream = () => {
 
     const nav = useNavigate();
 
-    const [poster, setPoster] = useState(null);
-    const [title, setTitle] = useState(null);
-    const [content, setContent] = useState(null);
+    const [poster, setPoster] = useState("");
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
     const [visibility, setVisibility] = useState("Public");
 
     return (
@@ -22,7 +22,7 @@ const NewDream = () => {
             <form>
                 <div className='mb-3' style={{ 'width': '30vw' }}>
                     <label className='form-label'>Dream Title:</label>
-                    <input value={content} onChange={e => setTitle(e.target.value)} className='form-control' />
+                    <input value={title} onChange={e => setTitle(e.target.value)} className='form-control' />
                 </div>
 
                 <div className='mb-3' style={{ 'width': '30vw' }}>
