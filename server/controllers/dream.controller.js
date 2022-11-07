@@ -15,15 +15,6 @@ module.exports.getAllPublicDreams = (req, res) => {
         .catch(err => res.json({message: "Something went wrong", error: err}))
 }
 
-module.exports.getAllDreamsByPoster = (req, res) => {
-    Dream.find()
-        .then(allDreams => {
-            const dreamsByUser = allDreams.filter(dream => dream.poster === req.params.poster)
-            return res.json(dreamsByUser)
-        })
-        .catch(err => res.json({message: "Something went wrong", error: err}))
-}
-
 module.exports.createDream = (req, res) => {
     Dream.create(req.body)
         .then(newDream => res.json(newDream))
