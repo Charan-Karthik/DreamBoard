@@ -15,9 +15,9 @@ const DreamSchema = new mongoose.Schema({
         minlength: [10, "A dream post must be at least 10 characters long"]
     },
     visibility: {
-        type: Boolean,
+        type: String,
         required: true,
-        default: 'public'
+        default: 'Public'
     },
     likes: {
         type: Array

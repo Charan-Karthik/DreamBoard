@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const NewDream = () => {
 
     const nav = useNavigate();
+
+    const [poster, setPoster] = useState(null);
+    const [title, setTitle] = useState(null);
+    const [content, setContent] = useState(null);
+    const [visibility, setVisibility] = useState("Public");
 
     return (
         <div>
@@ -17,19 +22,19 @@ const NewDream = () => {
             <form>
                 <div className='mb-3' style={{ 'width': '30vw' }}>
                     <label className='form-label'>Dream Title:</label>
-                    <input className='form-control' />
+                    <input value={content} onChange={e => setTitle(e.target.value)} className='form-control' />
                 </div>
 
                 <div className='mb-3' style={{ 'width': '30vw' }}>
                     <label className='form-label'>Dream Content:</label>
-                    <textarea className='form-control'></textarea>
+                    <textarea onChange={e => setContent(e.target.value)} className='form-control'></textarea>
                 </div>
 
                 <div className='mb-3' style={{ 'width': '30vw' }}>
                     <label className='form-label'>Dream Visibility:</label>
-                    <select className='form-select'>
-                        <option value="public">Public</option>
-                        <option value="private">Private</option>
+                    <select className='form-select' onChange={e => setVisibility(e.target.value)}>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
                     </select>
                 </div>
 
