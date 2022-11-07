@@ -14,7 +14,7 @@ module.exports.createDream = (req, res) => {
 
 module.exports.findOneDream = (req, res) => {
     Dream.findOne({_id: req.params.id})
-        .then(oneDream = res.json(oneDream))
+        .then(oneDream => res.json(oneDream))
         .catch(err => res.json(err))
 }
 
