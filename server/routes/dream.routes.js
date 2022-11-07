@@ -6,5 +6,4 @@ module.exports = function(app){
     app.post('/api/dreams', DreamController.createDream)
     app.get('/api/dreams/:id', DreamController.findOneDream)
     app.put('/api/dreams/:id', DreamController.addComment)
-    app.get('/api/dreams/:poster', DreamController.getAllDreamsByPoster)
 }
