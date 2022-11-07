@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import jwt from 'jwt-decode'
+import axios from 'axios'
 
 const DreamsByUser = (props) => {
 
     const nav = useNavigate();
+    const { username } = useParams();
+    const [allUserDreams, setAllUserDreams] = useState([]);
 
     // useEffect to get User
     useEffect(() => {
@@ -18,6 +21,19 @@ const DreamsByUser = (props) => {
                 localStorage.removeItem('token')
             }
         }
+    }, [])
+
+    // useEffect to get posts by username
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/dreams`)
+            .then(res => {
+                // console.log(res.data)
+                const temp = res.data
+                const dreamsByUser = temp.filter(dream => dream.poster === username)
+                // console.log(dreamsByUser)
+                setAllUserDreams(dreamsByUser)
+            })
+            .catch(err => console.log(err))
     }, [])
 
 
@@ -47,7 +63,11 @@ const DreamsByUser = (props) => {
 
             <hr className='mt-4' />
 
-            DreamsByUser
+            {allUserDreams.map(dream =>
+                <div key={dream._id}>
+                    {JSON.stringify(dream)}
+                </div>
+            )}
         </div>
     )
 }
