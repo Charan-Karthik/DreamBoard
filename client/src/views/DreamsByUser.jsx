@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import jwt from 'jwt-decode'
 import axios from 'axios'
 
@@ -63,11 +63,24 @@ const DreamsByUser = (props) => {
 
             <hr className='mt-4' />
 
-            {allUserDreams.map(dream =>
-                <div key={dream._id}>
-                    {JSON.stringify(dream)}
-                </div>
-            )}
+            <table className="table table-dark table-striped table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Dream Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Visibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allUserDreams.map(dream => 
+                        <tr key={dream._id}>
+                            <td><Link style={{'textDecoration':'none', 'color':'white'}} to={`/dream/${dream._id}`}>{dream.title}</Link></td>
+                            <td>{dream.createdAt.slice(0,10)}</td>
+                            <td>{dream.visibility}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     )
 }
