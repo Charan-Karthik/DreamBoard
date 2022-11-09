@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Dream = ({ info }) => {
+const Dream = ({ info, loggedInUser }) => {
 
   const [postLikes, setPostLikes] = useState(info.likes);
   const [postDislikes, setPostDislikes] = useState(info.dislikes);
@@ -19,7 +19,7 @@ const Dream = ({ info }) => {
   }
 
   const undoDislike = () => {
-    
+
   }
 
   return (

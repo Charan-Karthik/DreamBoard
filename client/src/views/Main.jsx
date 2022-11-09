@@ -60,7 +60,7 @@ const Main = (props) => {
 
             {allDreams.map(dream =>
                 <div key={dream._id}>
-                    <Dream info={dream} />
+                    <Dream info={dream} loggedInUser={props.loggedInUser} />
                 </div>
             )}
         </div>
