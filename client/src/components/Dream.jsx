@@ -8,12 +8,12 @@ const Dream = ({ info, loggedInUser }) => {
   const [postDislikes, setPostDislikes] = useState(info.dislikes);
 
   const likeAction = () => {
-    postLikes.push(loggedInUser.username)
+    postLikes.push(loggedInUser)
     setPostLikes(postLikes)
 
     let tempDislikesArray
-    if (postDislikes.includes(loggedInUser.username)){
-      tempDislikesArray = postDislikes.filter(dislike => dislike !== loggedInUser.username)
+    if (postDislikes.includes(loggedInUser)){
+      tempDislikesArray = postDislikes.filter(dislike => dislike !== loggedInUser)
       setPostDislikes(tempDislikesArray)
     }
 
@@ -21,7 +21,16 @@ const Dream = ({ info, loggedInUser }) => {
   }
 
   const dislikeAction = () => {
+    postDislikes.push(loggedInUser)
+    setPostDislikes(postDislikes)
 
+    let tempLikesArray
+    if (postLikes.includes(loggedInUser)){
+      tempLikesArray = postLikes.filter(like => like !== loggedInUser)
+      setPostLikes(tempLikesArray)
+    }
+
+    // axios put request to update database
   }
 
   const undoLike = () => {
