@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+// import axios from 'axios'
 
 const Dream = ({ info, loggedInUser }) => {
 
@@ -7,7 +8,16 @@ const Dream = ({ info, loggedInUser }) => {
   const [postDislikes, setPostDislikes] = useState(info.dislikes);
 
   const likeAction = () => {
+    postLikes.push(loggedInUser.username)
+    setPostLikes(postLikes)
 
+    let tempDislikesArray
+    if (postDislikes.includes(loggedInUser.username)){
+      tempDislikesArray = postDislikes.filter(dislike => dislike !== loggedInUser.username)
+      setPostDislikes(tempDislikesArray)
+    }
+
+    // axios put request to update database
   }
 
   const dislikeAction = () => {
