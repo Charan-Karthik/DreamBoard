@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-// import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Dream = ({ info, loggedInUser }) => {
+
+  const nav = useNavigate();
 
   const [postLikes, setPostLikes] = useState(info.likes);
   const [postDislikes, setPostDislikes] = useState(info.dislikes);
@@ -18,6 +20,14 @@ const Dream = ({ info, loggedInUser }) => {
     }
 
     // axios put request to update database
+    axios.put(`http://localhost:8000/api/dreams/${info._id}`, {
+      likes: postLikes,
+      dislikes: tempDislikesArray
+    })
+      .then(res => console.log(res.data))
+      .catch(err => console.log("ERROR", err))
+
+      nav('/')
   }
 
   const dislikeAction = () => {
@@ -31,6 +41,15 @@ const Dream = ({ info, loggedInUser }) => {
     }
 
     // axios put request to update database
+
+    axios.put(`http://localhost:8000/api/dreams/${info._id}`, {
+      likes: tempLikesArray,
+      dislikes: postDislikes
+    })
+      .then(res => console.log(res.data))
+      .catch(err => console.log("ERROR", err))
+
+    nav('/')
   }
 
   const undoLike = () => {
@@ -38,6 +57,13 @@ const Dream = ({ info, loggedInUser }) => {
     setPostLikes(unLikeArr);
 
     // axios put request to update database
+    axios.put(`http://localhost:8000/api/dreams/${info._id}`, {
+      likes: unLikeArr
+    })
+      .then(res => console.log(res.data))
+      .catch(err => console.log("ERROR", err))
+
+    nav('/')
   }
 
   const undoDislike = () => {
@@ -45,6 +71,13 @@ const Dream = ({ info, loggedInUser }) => {
     setPostDislikes(unDislikeArr);
 
     // axios put request to update database
+    axios.put(``, {
+      dislikes: unDislikeArr
+    })
+      .then(res => console.log(res.data))
+      .catch(err => console.log("ERROR", err))
+    
+    nav('/')
   }
 
   return (
