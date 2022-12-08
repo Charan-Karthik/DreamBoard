@@ -14,7 +14,7 @@ const Dream = ({ info, loggedInUser }) => {
     setPostLikes(postLikes)
 
     let tempDislikesArray
-    if (postDislikes.includes(loggedInUser)){
+    if (postDislikes.includes(loggedInUser)) {
       tempDislikesArray = postDislikes.filter(dislike => dislike !== loggedInUser)
       setPostDislikes(tempDislikesArray)
     }
@@ -27,7 +27,7 @@ const Dream = ({ info, loggedInUser }) => {
       .then(res => console.log(res.data))
       .catch(err => console.log("ERROR", err))
 
-      nav('/')
+    nav('/')
   }
 
   const dislikeAction = () => {
@@ -35,7 +35,7 @@ const Dream = ({ info, loggedInUser }) => {
     setPostDislikes(postDislikes)
 
     let tempLikesArray
-    if (postLikes.includes(loggedInUser)){
+    if (postLikes.includes(loggedInUser)) {
       tempLikesArray = postLikes.filter(like => like !== loggedInUser)
       setPostLikes(tempLikesArray)
     }
@@ -76,7 +76,7 @@ const Dream = ({ info, loggedInUser }) => {
     })
       .then(res => console.log(res.data))
       .catch(err => console.log("ERROR", err))
-    
+
     nav('/')
   }
 
@@ -95,9 +95,17 @@ const Dream = ({ info, loggedInUser }) => {
             <p style={{ 'marginTop': '15px' }}>Comments: {info.comments.length}</p>
 
             <div className='d-flex gap-4 align-items-center justify-content-center'>
-              <button className='btn btn-sm btn-outline-success'>ᐱ</button>
-              <p style={{ 'marginTop': '15px' }}>{info.likes.length - info.dislikes.length}</p>
-              <button className='btn btn-sm btn-outline-danger'>ᐯ</button>
+
+              {loggedInUser ? loggedInUser === info.poster ? <></> : postLikes.includes(loggedInUser) ? <button onClick={undoLike} className='btn btn-sm btn-success'>ᐱ</button> : <button onClick={likeAction} className='btn btn-sm btn-outline-success'>ᐱ</button> : <></>}
+
+              {postLikes.length - postDislikes.length >= 0 ?
+                <p style={{ 'marginTop': '15px', 'color': 'green' }}>{postLikes.length - postDislikes.length}</p>
+                :
+                <p style={{ 'marginTop': '15px', 'color': 'red' }}>{postLikes.length - postDislikes.length}</p>
+              }
+
+              {loggedInUser ? loggedInUser === info.poster ? <></> : postDislikes.includes(loggedInUser) ? <button onClick={undoDislike} className='btn btn-sm btn-danger'>ᐯ</button> : <button onClick={dislikeAction} className='btn btn-sm btn-outline-danger'>ᐯ</button> : <></>}
+
             </div>
           </div>
         </div>
