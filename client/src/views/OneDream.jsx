@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import jwt from 'jwt-decode'
-import Dream from '../components/Dream'
+// import Dream from '../components/Dream'
 
 const OneDream = (props) => {
 
@@ -10,6 +10,10 @@ const OneDream = (props) => {
   const nav = useNavigate();
 
   const [dream, setDream] = useState(null);
+  // const [flag, setFlag] = useState(false);
+
+  const [comment, setComment] = useState("")
+  const [dreamComments, setDreamComments] = useState([]);
 
   // useEffect to get User
   useEffect(() => {
@@ -31,6 +35,8 @@ const OneDream = (props) => {
       .then(res => {
         console.log(res.data)
         setDream(res.data)
+        setDreamComments(res.data.comments)
+        // setFlag(true)
       })
       .catch(err => console.log(err))
   }, [])
@@ -38,6 +44,25 @@ const OneDream = (props) => {
   const logoutAction = () => {
     localStorage.removeItem('token')
     props.setLoggedInUser(null)
+  }
+
+  const commentSubmit = (e) => {
+    e.preventDefault();
+
+    const commentObj = {
+      poster: props.loggedInUser,
+      text: comment
+    }
+
+    dreamComments.push(commentObj);
+    
+    axios.put(`http://localhost:8000/api/thoughts/${id}`, { comments: dreamComments })
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => console.log("ERROR", err))
+
+    setComment("");
   }
 
   return (
@@ -82,9 +107,11 @@ const OneDream = (props) => {
         <hr />
 
         <h2>Comments - </h2>
+        
+        {/* {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link' onClick={() => nav('/loginreg')}>Login or Register to Leave a Comment</button>} */}
+        
+
       </div>
-
-
         : <></>}
     </div>
   )
