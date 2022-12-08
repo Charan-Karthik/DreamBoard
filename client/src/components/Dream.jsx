@@ -34,11 +34,17 @@ const Dream = ({ info, loggedInUser }) => {
   }
 
   const undoLike = () => {
+    let unLikeArr = postLikes.filter(like => like !== loggedInUser)
+    setPostLikes(unLikeArr);
 
+    // axios put request to update database
   }
 
   const undoDislike = () => {
+    let unDislikeArr = postDislikes.filter(dislike => dislike !== loggedInUser)
+    setPostDislikes(unDislikeArr);
 
+    // axios put request to update database
   }
 
   return (
