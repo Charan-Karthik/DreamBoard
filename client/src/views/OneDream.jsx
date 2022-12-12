@@ -55,7 +55,7 @@ const OneDream = (props) => {
     }
 
     dreamComments.push(commentObj);
-    
+
     axios.put(`http://localhost:8000/api/thoughts/${id}`, { comments: dreamComments })
       .then(res => {
         console.log(res.data)
@@ -107,12 +107,30 @@ const OneDream = (props) => {
         <hr />
 
         <h2>Comments - </h2>
-        
-        {/* {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link' onClick={() => nav('/loginreg')}>Login or Register to Leave a Comment</button>} */}
-        
 
+        {/* {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link' onClick={() => nav('/loginreg')}>Login or Register to Leave a Comment</button>} */}
+
+        {props.loggedInUser ?
+          <form className='mb-5' onSubmit={commentSubmit}>
+            <div className='mt-3 mb-3'>
+              <label className='form-label'>Add a Comment:</label>
+              <input value={comment} onChange={e => setComment(e.target.value)} className='form-control w-50' required />
+            </div>
+            <button className='btn btn-success'>Send Comment</button>
+          </form>
+          :
+          <></>}
+
+        {dreamComments.map((oneComment, i) =>
+          <div key={i} className='mb-4' style={{ 'border': '2px solid black', 'borderRadius': '10px' }}>
+            <div style={{ 'padding': '10px' }}>
+              <p>{oneComment.poster} says...</p>
+              <p><b>{oneComment.text}</b></p>
+            </div>
+          </div>
+        )}
       </div>
-        : <></>}
+        : <><h1 className='text-center'>loading...</h1></>}
     </div>
   )
 }
