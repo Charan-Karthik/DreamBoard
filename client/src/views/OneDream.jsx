@@ -117,7 +117,7 @@ const OneDream = (props) => {
               </div>
               <button className='btn btn-success'>Send Comment</button>
             </form>
-            <hr className='mb-5' />
+            <hr className='mb-4' />
           </div>
           :
           <>
