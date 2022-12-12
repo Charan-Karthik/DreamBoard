@@ -21,7 +21,7 @@ const OneDream = (props) => {
     if (token) {
       const user = jwt(token)
       if (user) {
-        console.log(user)
+        // console.log(user)
         props.setLoggedInUser(user.username)
       } else {
         localStorage.removeItem('token')
@@ -108,21 +108,26 @@ const OneDream = (props) => {
 
         <h2>Comments - </h2>
 
-        {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link mb-5' onClick={() => nav('/auth')}>Login or Register to Leave a Comment</button>}
-
         {props.loggedInUser ?
-          <form className='mb-5' onSubmit={commentSubmit}>
-            <div className='mt-3 mb-3'>
-              <label className='form-label'>Add a Comment:</label>
-              <input value={comment} onChange={e => setComment(e.target.value)} className='form-control w-50' required />
-            </div>
-            <button className='btn btn-success'>Send Comment</button>
-          </form>
+          <div>
+            <form className='mb-4' onSubmit={commentSubmit}>
+              <div className='mt-3 mb-3'>
+                <label className='form-label'>Add a Comment:</label>
+                <input value={comment} onChange={e => setComment(e.target.value)} className='form-control w-75' required />
+              </div>
+              <button className='btn btn-success'>Send Comment</button>
+            </form>
+            <hr className='mb-5' />
+          </div>
           :
-          <></>}
+          <>
+            <div className='d-flex justify-content-center align-items-center'>
+              <button className='btn btn-outline-light mb-5' onClick={() => nav('/auth')}>Login or Register to Leave a Comment</button>
+            </div>
+          </>}
 
         {dreamComments.map((oneComment, i) =>
-          <div key={i} className='mb-4' style={{ 'border': '2px solid black', 'borderRadius': '10px' }}>
+          <div key={i} className='mb-4' style={{ 'border': '2px solid mediumpurple', 'borderRadius': '10px' }}>
             <div style={{ 'padding': '10px' }}>
               <p>{oneComment.poster} says...</p>
               <p><b>{oneComment.text}</b></p>

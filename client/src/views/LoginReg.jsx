@@ -27,12 +27,12 @@ const LoginReg = (props) => {
       confirmPassword
     })
       .then(res => {
-        console.log("SUCCESS", res.data)
+        // console.log("SUCCESS", res.data)
         localStorage.setItem('token', res.data.user)
         nav('/')
       })
       .catch(err => {
-        console.log('ERROR', err)
+        // console.log('ERROR', err)
 
         const errorResponse = err.response.data.errors;
         const errorArr = [];
@@ -59,12 +59,12 @@ const LoginReg = (props) => {
       password: loginPassword
     })
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         localStorage.setItem('token', res.data.user)
         nav('/')
       })
       .catch(err => {
-        console.log("ERROR", err)
+        // console.log("ERROR", err)
         setLoginErrors("Incorrect email and/or password")
       })
   }
