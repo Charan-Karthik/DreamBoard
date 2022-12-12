@@ -33,7 +33,7 @@ const OneDream = (props) => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/dreams/${id}`)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         setDream(res.data)
         setDreamComments(res.data.comments)
         // setFlag(true)
@@ -56,7 +56,7 @@ const OneDream = (props) => {
 
     dreamComments.push(commentObj);
 
-    axios.put(`http://localhost:8000/api/thoughts/${id}`, { comments: dreamComments })
+    axios.put(`http://localhost:8000/api/dreams/${id}`, { comments: dreamComments })
       .then(res => {
         console.log(res.data)
       })
@@ -108,7 +108,7 @@ const OneDream = (props) => {
 
         <h2>Comments - </h2>
 
-        {/* {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link' onClick={() => nav('/loginreg')}>Login or Register to Leave a Comment</button>} */}
+        {props.loggedInUser ? <></> : <button className='btn btn-sm btn-link mb-5' onClick={() => nav('/auth')}>Login or Register to Leave a Comment</button>}
 
         {props.loggedInUser ?
           <form className='mb-5' onSubmit={commentSubmit}>
