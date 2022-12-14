@@ -90,15 +90,16 @@ const OneDream = (props) => {
         <hr className='mt-4 mb-5' />
 
         <div className='d-flex align-items-center flex-column'>
-          <div className='card mb-4' style={{ 'width': '80%', 'backgroundColor': 'cornflowerblue' }}>
+          <div className='card mb-4' style={{ 'width': '80%', 'backgroundColor': 'rebeccapurple' }}>
             <div className='card-body'>
               <h4 className='card-title'>{dream.title}</h4>
-              <h5 className="card-subtitle mb-2 text-muted">{dream.poster}</h5>
+              <h6 className="card-subtitle mb-4 text-light" style={{'fontSize':'.97em'}}>Posted by: {dream.poster}</h6>
 
-              <p style={{ 'fontSize': '1.15em' }} className="card-text text-center"><em>{dream.content}</em></p>
+              <p style={{ 'fontSize': '1.15em' }} className="card-text text-center mb-4"><em>{dream.content}</em></p>
 
               <div className='d-flex justify-content-end'>
-                <p>Dream Rating: {dream.likes.length - dream.dislikes.length}</p>
+                {dream.visibility === "Private" ? <></> : dream.likes.length - dream.dislikes.length >= 0 ? <p>Dream Rating: <span style={{'color':'green', 'marginLeft':'7px'}}>{dream.likes.length - dream.dislikes.length}</span></p> : <p>Dream Rating: <span style={{'color':'red', 'marginLeft':'7px'}}>{dream.likes.length - dream.dislikes.length}</span></p>
+                }
               </div>
             </div>
           </div>

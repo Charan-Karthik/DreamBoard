@@ -74,7 +74,7 @@ const DreamsByUser = (props) => {
                 <tbody>
                     {allUserDreams.map(dream => 
                         <tr key={dream._id}>
-                            <td><Link style={{'textDecoration':'none', 'color':'white'}} to={`/dream/${dream._id}`}>{dream.title}</Link></td>
+                            <td><Link style={{'textDecoration':'none', 'color':'white'}} to={`/dream/${dream._id}`}><u>{dream.title}</u></Link></td>
                             <td>{dream.createdAt.slice(0,10)}</td>
                             <td>{dream.visibility}</td>
                         </tr>

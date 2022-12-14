@@ -82,15 +82,15 @@ const Dream = ({ info, loggedInUser }) => {
 
   return (
     <div className='d-flex align-items-center flex-column'>
-      <div className='card mb-4' style={{ 'width': '50%', 'backgroundColor': 'cornflowerblue' }}>
+      <div className='card mb-4' style={{ 'width': '50%', 'backgroundColor': 'rebeccapurple' }}>
         <div className='card-body'>
-          <h5 className='card-title'>{info.title}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{info.poster}</h6>
-          <p style={{ 'fontSize': '1.01em' }} className="card-text"><em>{info.content}</em></p>
+          <h4 className='card-title'><b>{info.title}</b></h4>
+          <h6 className="card-subtitle mb-3 text-light" style={{'fontSize':'.9em'}}>Posted by: {info.poster}</h6>
+          <p style={{ 'fontSize': '1.01em' }} className="card-text text-center mb-4"><em>{info.content}</em></p>
 
           <div className='d-flex justify-content-around'>
             {/* <p style={{ 'marginTop': '15px' }}>View Dream</p> */}
-            <Link style={{ 'marginTop': '15px', 'textDecoration': 'none', 'color': 'white' }} to={`/dream/${info._id}`}>View Dream</Link>
+            <Link style={{ 'marginTop': '15px', 'textDecoration': 'none', 'color': 'white' }} to={`/dream/${info._id}`}><u>View Dream</u></Link>
 
             <p style={{ 'marginTop': '15px' }}>Comments: {info.comments.length}</p>
 
