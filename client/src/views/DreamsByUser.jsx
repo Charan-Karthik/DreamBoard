@@ -63,6 +63,7 @@ const DreamsByUser = (props) => {
 
             <hr className='mt-4' />
 
+            <h2 className='text-center mb-3'>All of <span style={{ 'color': 'mediumpurple' }}>Your Dreams</span></h2>
             <table className="table table-dark table-striped table-bordered text-center">
                 <thead>
                     <tr>

@@ -136,7 +136,7 @@ const OneDream = (props) => {
           </div>
         )}
       </div>
-        : <><h1 className='text-center'>loading...</h1></>}
+        : <><h1 style={{'height':'100vh', 'width':'100%', 'display':'flex', 'justifyContent':'center', 'alignItems':'center'}}>loading...</h1></>}
     </div>
   )
 }
