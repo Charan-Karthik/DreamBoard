@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
+import NoUserHeader from '../components/NoUserHeader'
+
 const LoginReg = (props) => {
 
   const nav = useNavigate();
@@ -71,14 +73,7 @@ const LoginReg = (props) => {
 
   return (
     <div>
-      <div className='d-flex justify-content-between align-items-center'>
-        <h1 className='text-center' onClick={() => nav('/')}>Dream<span style={{ 'color': 'mediumpurple' }}>ZZZ</span></h1>
-        <button className='btn btn-sm btn-outline-light' onClick={() => nav('/')}>View All Shared Dreams</button>
-      </div>
-
-      <hr className='mt-4 mb-5' />
-
-      {/* <h3 className='text-center mb-5'>Log In or Register to Share your Dreams!</h3> */}
+      <NoUserHeader />
 
       <div className="d-flex justify-content-around mt-3">
         <form className="w-25 d-block mx-auto" onSubmit={register}>

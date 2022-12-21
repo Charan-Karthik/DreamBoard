@@ -6,6 +6,8 @@ import LoginReg from './views/LoginReg'
 import NewDream from './views/NewDream';
 import OneDream from './views/OneDream'
 import DreamsByUser from './views/DreamsByUser'
+import Login from './views/Login'
+import Register from './views/Register';
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
         <Route path={'*'} element={<Navigate to={'/'} />} />
         <Route path={'/'} element={<Main loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
         <Route path={'/auth'} element={<LoginReg />} />
+        <Route path={'/login'} element={<Login />} />
+        <Route path={'/register'} element={<Register />} />
         <Route path={'/new/dream'} element={<NewDream loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
         <Route path={'/dream/:id'} element={<OneDream loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
         <Route path={'/dreams/:username'} element={<DreamsByUser loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
