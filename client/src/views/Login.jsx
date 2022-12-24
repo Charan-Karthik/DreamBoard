@@ -32,7 +32,7 @@ const Login = () => {
                 </div>
                 <p>
                     Don't have an account?  
-                    <Link to={'/login'}>Register</Link>
+                    <Link to={'/register'}>Register</Link>
                 </p>
             </form>
         </div>
