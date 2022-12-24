@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import NoUserHeader from '../components/NoUserHeader'
 
 const Register = () => {
@@ -7,7 +8,7 @@ const Register = () => {
             <NoUserHeader />
 
             <form>
-                <h3>Sign Up</h3>
+                <h3>Register</h3>
                 <div className="mb-3">
                     <label>First name</label>
                     <input
@@ -38,11 +39,12 @@ const Register = () => {
                 </div>
                 <div className="d-grid mb-3">
                     <button type="submit" className="btn btn-primary">
-                        Sign Up
+                        Register
                     </button>
                 </div>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/sign-in">sign in?</a>
+                <p>
+                    Already registered?  
+                    <Link to={'/login'}>Log In</Link>
                 </p>
             </form>
         </div>
