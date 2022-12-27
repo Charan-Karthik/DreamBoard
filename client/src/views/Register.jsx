@@ -50,7 +50,7 @@ const Register = (props) => {
             <NoUserHeader />
 
             <div className='d-flex justify-content-center'>
-                <form className='w-50 d-flex flex-column'>
+                <form className='w-50 d-flex flex-column' onSubmit={register}>
                     <h1 className='text-center'>Register</h1>
 
                     {errors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'>

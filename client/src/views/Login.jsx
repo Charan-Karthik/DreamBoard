@@ -33,7 +33,7 @@ const Login = (props) => {
             <NoUserHeader />
 
             <div className='d-flex justify-content-center'>
-                <form className='w-50 d-flex flex-column'>
+                <form className='w-50 d-flex flex-column' onSubmit={login}>
                     <h1 className='text-center'>Log In</h1>
 
                     {errors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'>
