@@ -1,8 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import NoUserHeader from '../components/NoUserHeader'
 
-const Login = () => {
+const Login = (props) => {
+
+    const nav = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [errors, setErrors] = useState(null);
+
+    const login = (e) => {
+        e.preventDefault();
+
+        axios.post('http://localhost:8000/api/users/login', {
+            email,
+            password
+        })
+            .then(res => {
+                localStorage.setItem('token', res.data.user)
+                nav('/')
+            })
+            .catch(err => {
+                setErrors("Incorrect email and/or password")
+            })
+    }
+
     return (
         <div>
             <NoUserHeader />
@@ -30,9 +55,7 @@ const Login = () => {
                     </div>
 
                     <div className="d-grid mb-3">
-                        <button type="submit" className="btn btn-primary">
-                            Submit
-                        </button>
+                        <input type="submit" className="btn btn-primary" value="Log In" />
                     </div>
 
                     <p className='text-center'>

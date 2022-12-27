@@ -1,8 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import NoUserHeader from '../components/NoUserHeader'
 
-const Register = () => {
+const Register = (props) => {
+
+    const nav = useNavigate();
+
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const [errors, setErrors] = useState(null);
+
+    const register = (e) => {
+        e.preventDefault();
+
+        axios.post('http://localhost:8000/api/users/register', {
+            username,
+            email,
+            password,
+            confirmPassword
+        })
+            .then(res => {
+                localStorage.setItem('token', res.data.user)
+                nav('/')
+            })
+            .catch(err => {
+                const errorResponse = err.response.data.errors;
+                const errorArray = [];
+
+                if (errorResponse) {
+                    for (const key of Object.keys(errorResponse)){
+                        errorArray.push(errorResponse[key].message)
+                    }
+                }
+
+                if (err.response.data.code === 11000) {
+                    errorArray.push("Email and/or Username is already in use")
+                }
+
+                setErrors(errorArray);
+            })
+    }
+
     return (
         <div>
             <NoUserHeader />
@@ -47,9 +89,7 @@ const Register = () => {
                     </div>
 
                     <div className="d-grid mb-3">
-                        <button type="submit" className="btn btn-primary">
-                            Register
-                        </button>
+                        <input type='submit' className='btn btn-primary' value='Register' />
                     </div>
 
                     <p className='text-center'>
