@@ -6,51 +6,57 @@ const Register = () => {
     return (
         <div>
             <NoUserHeader />
+            <div className='d-flex justify-content-center'>
+                <form className='w-50 d-flex flex-column'>
+                    <h1 className='text-center'>Register</h1>
 
-            <form>
-                <h3>Register</h3>
-                <div className="mb-3">
-                    <label>Username</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="First name"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>Confirm Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Confirm password"
-                    />
-                </div>
-                <div className="d-grid mb-3">
-                    <button type="submit" className="btn btn-primary">
-                        Register
-                    </button>
-                </div>
-                <p>
-                    Already registered?  
-                    <Link to={'/login'}>Log In</Link>
-                </p>
-            </form>
+                    <div className="mb-3">
+                        <label className='form-label'>Username</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter username"
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className='form-label'>Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter email"
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className='form-label'>Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Enter password"
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className='form-label'>Confirm Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Confirm password"
+                        />
+                    </div>
+
+                    <div className="d-grid mb-3">
+                        <button type="submit" className="btn btn-primary">
+                            Register
+                        </button>
+                    </div>
+
+                    <p className='text-center'>
+                        <Link style={{ 'color': 'whitesmoke' }} to={'/login'}>Already registered?</Link>
+                    </p>
+                </form>
+            </div>
         </div>
     )
 }
