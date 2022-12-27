@@ -36,13 +36,17 @@ const Login = (props) => {
                 <form className='w-50 d-flex flex-column'>
                     <h1 className='text-center'>Log In</h1>
 
+                    {errors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'>
+                        <p className='text-center'>{errors}</p>
+                    </div> : <></>}
+
                     <div className="mb-3">
                         <label className='form-label'>Email</label>
                         <input
                             type="email"
                             className="form-control"
                             placeholder="Enter email"
-                            onChange={(e) => {setEmail(e.target.value)}}
+                            onChange={(e) => { setEmail(e.target.value) }}
                         />
                     </div>
 
@@ -52,7 +56,7 @@ const Login = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Enter password"
-                            onChange={(e) => {setPassword(e.target.value)}}
+                            onChange={(e) => { setPassword(e.target.value) }}
                         />
                     </div>
 

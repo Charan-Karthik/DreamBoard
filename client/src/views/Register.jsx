@@ -32,7 +32,7 @@ const Register = (props) => {
                 const errorArray = [];
 
                 if (errorResponse) {
-                    for (const key of Object.keys(errorResponse)){
+                    for (const key of Object.keys(errorResponse)) {
                         errorArray.push(errorResponse[key].message)
                     }
                 }
@@ -48,10 +48,14 @@ const Register = (props) => {
     return (
         <div>
             <NoUserHeader />
-            
+
             <div className='d-flex justify-content-center'>
                 <form className='w-50 d-flex flex-column'>
                     <h1 className='text-center'>Register</h1>
+
+                    {errors ? <div className='alert alert-danger d-flex align-items-center justify-content-center flex-column'>
+                        {errors.map((err, index) => <p className='text-center' key={index}>{err}</p>)}
+                    </div> : <></>}
 
                     <div className="mb-3">
                         <label className='form-label'>Username</label>
@@ -59,7 +63,7 @@ const Register = (props) => {
                             type="text"
                             className="form-control"
                             placeholder="Enter username"
-                            onChange={(e) => {setUsername(e.target.value)}}
+                            onChange={(e) => { setUsername(e.target.value) }}
                         />
                     </div>
 
@@ -69,7 +73,7 @@ const Register = (props) => {
                             type="email"
                             className="form-control"
                             placeholder="Enter email"
-                            onChange={(e) => {setEmail(e.target.value)}}
+                            onChange={(e) => { setEmail(e.target.value) }}
                         />
                     </div>
 
@@ -79,7 +83,7 @@ const Register = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Enter password"
-                            onChange={(e) => {setPassword(e.target.value)}}
+                            onChange={(e) => { setPassword(e.target.value) }}
                         />
                     </div>
 
@@ -89,7 +93,7 @@ const Register = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Confirm password"
-                            onChange={(e) => {setConfirmPassword(e.target.value)}}
+                            onChange={(e) => { setConfirmPassword(e.target.value) }}
                         />
                     </div>
 
