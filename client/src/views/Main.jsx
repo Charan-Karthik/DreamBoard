@@ -52,7 +52,7 @@ const Main = (props) => {
                         </ul>
                     </div>
                     :
-                    <button className='btn btn-sm btn-outline-light' onClick={() => nav('/auth')}>Log In/Register</button>}
+                    <button className='btn btn-sm btn-outline-light' onClick={() => nav('/login')}>Log In</button>}
             </div>
 
             <hr className='mt-4' />

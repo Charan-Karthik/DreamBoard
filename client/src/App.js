@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path={'*'} element={<Navigate to={'/'} />} />
         <Route path={'/'} element={<Main loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
-        <Route path={'/auth'} element={<LoginReg />} />
+        {/* <Route path={'/auth'} element={<LoginReg />} /> */}
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
         <Route path={'/new/dream'} element={<NewDream loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
