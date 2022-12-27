@@ -48,6 +48,7 @@ const Register = (props) => {
     return (
         <div>
             <NoUserHeader />
+            
             <div className='d-flex justify-content-center'>
                 <form className='w-50 d-flex flex-column'>
                     <h1 className='text-center'>Register</h1>
@@ -58,6 +59,7 @@ const Register = (props) => {
                             type="text"
                             className="form-control"
                             placeholder="Enter username"
+                            onChange={(e) => {setUsername(e.target.value)}}
                         />
                     </div>
 
@@ -67,6 +69,7 @@ const Register = (props) => {
                             type="email"
                             className="form-control"
                             placeholder="Enter email"
+                            onChange={(e) => {setEmail(e.target.value)}}
                         />
                     </div>
 
@@ -76,6 +79,7 @@ const Register = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Enter password"
+                            onChange={(e) => {setPassword(e.target.value)}}
                         />
                     </div>
 
@@ -85,6 +89,7 @@ const Register = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Confirm password"
+                            onChange={(e) => {setConfirmPassword(e.target.value)}}
                         />
                     </div>
 

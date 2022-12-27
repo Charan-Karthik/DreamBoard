@@ -42,6 +42,7 @@ const Login = (props) => {
                             type="email"
                             className="form-control"
                             placeholder="Enter email"
+                            onChange={(e) => {setEmail(e.target.value)}}
                         />
                     </div>
 
@@ -51,6 +52,7 @@ const Login = (props) => {
                             type="password"
                             className="form-control"
                             placeholder="Enter password"
+                            onChange={(e) => {setPassword(e.target.value)}}
                         />
                     </div>
 
