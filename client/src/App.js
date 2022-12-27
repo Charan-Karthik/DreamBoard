@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import React, { useState } from 'react'
 
 import Main from './views/Main';
-import LoginReg from './views/LoginReg'
+// import LoginReg from './views/LoginReg'
 import NewDream from './views/NewDream';
 import OneDream from './views/OneDream'
 import DreamsByUser from './views/DreamsByUser'
