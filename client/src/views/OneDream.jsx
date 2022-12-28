@@ -123,7 +123,7 @@ const OneDream = (props) => {
           :
           <>
             <div className='d-flex justify-content-center align-items-center'>
-              <button className='btn btn-outline-light mb-5' onClick={() => nav('/auth')}>Login or Register to Leave a Comment</button>
+              <button className='btn btn-outline-light mb-5' onClick={() => nav('/login')}>Log In or Register to Leave a Comment</button>
             </div>
           </>}
 
