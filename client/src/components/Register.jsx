@@ -1,4 +1,6 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const nav = useNavigate();
@@ -43,8 +45,6 @@ const Register = () => {
 
     return (
         <div>
-            <NoUserHeader />
-
             <div className='d-flex justify-content-center'>
                 <form className='w-50 d-flex flex-column' onSubmit={register}>
                     <h1 className='text-center'>Register</h1>

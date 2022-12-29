@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 
 import Main from './views/Main';
 // import LoginReg from './views/LoginReg'
-import NewDream from './views/NewDream';
+import NewDream from './views/NewDream'
 import OneDream from './views/OneDream'
 import DreamsByUser from './views/DreamsByUser'
 import LoginView from './views/LoginView'
-import RegisterView from './views/RegisterView';
+import RegisterView from './views/RegisterView'
 
 function App() {
 
