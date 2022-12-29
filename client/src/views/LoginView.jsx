@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import NoUserHeader from '../components/NoUserHeader'
 
-const Login = (props) => {
+const LoginView = (props) => {
 
     const nav = useNavigate();
 
@@ -73,4 +73,4 @@ const Login = (props) => {
     )
 }
 
-export default Login
+export default LoginView

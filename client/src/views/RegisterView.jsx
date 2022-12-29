@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import NoUserHeader from '../components/NoUserHeader'
 
-const Register = (props) => {
+const RegisterView = (props) => {
 
     const nav = useNavigate();
 
@@ -110,4 +110,4 @@ const Register = (props) => {
     )
 }
 
-export default Register
+export default RegisterView
