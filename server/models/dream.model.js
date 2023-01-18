@@ -4,6 +4,15 @@ const DreamSchema = new mongoose.Schema({
     poster: {
         type: String,
         required: [true, "Must be logged in to share a dream"]
+        // experiment linking this to a user object using ref
+        // i.e.
+        /* 
+            user: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+            }
+        */
     },
     title: {
         type: String,
