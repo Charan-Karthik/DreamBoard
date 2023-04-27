@@ -84,7 +84,7 @@ const Dream = ({ info, loggedInUser }) => {
     <div className='d-flex align-items-center flex-column'>
       <div className='card mb-4' style={{ 'width': '50%', 'backgroundColor': 'rebeccapurple' }}>
         <div className='card-body'>
-          <h4 className='card-title'><b>{info.title}</b></h4>
+          <h4 className='card-title'><strong>{info.title}</strong></h4>
           <h6 className="card-subtitle mb-3 text-light" style={{'fontSize':'.9em'}}>Posted by: {info.poster}</h6>
           <p style={{ 'fontSize': '1.01em' }} className="card-text text-center mb-4"><em>{info.content}</em></p>
 

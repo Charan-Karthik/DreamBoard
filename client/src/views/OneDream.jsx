@@ -131,7 +131,7 @@ const OneDream = (props) => {
           <div key={i} className='mb-4' style={{ 'border': '2px solid mediumpurple', 'borderRadius': '10px' }}>
             <div style={{ 'padding': '10px' }}>
               <p>{oneComment.poster} says...</p>
-              <p><b>{oneComment.text}</b></p>
+              <p><strong>{oneComment.text}</strong></p>
             </div>
           </div>
         )}
